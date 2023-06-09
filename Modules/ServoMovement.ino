@@ -93,10 +93,11 @@ int PerAngle = 0;
 // 전 속도와의 차이를 구해, 그에 비례하는 값을 곱한 새로운 값을 속도로 지정하면 어떨까?
 // 방향(LR UD)을 +- 로만 구분해주면 되는거지. 
 
-int calSpeed(int pError, int error) {
-    // !!!! speed 와 같은 전역변수는 줄이자. 전역변수는 절대악이다. 물론 Python 의 기억, 아두이노 특유의 형태 때문에 전역변수를 쓰게 되겠지만 그래도 최대한 줄이려고 노력하자.
-    return (int)((error - pError) * VelocityRatio); // !!!! 타입 전환 꼼꼼히 한거 너무 칭찬해
-}
+int calSpeed(int p_error, int error)
+{
+  speed = (int)((error - p_error) * velMultiplier); // 작년에는 error에도 pid 적용하여 계산함
+  return speed;
+
 
 void moveServo(float interval, int angle) { // !!!! 아마 interval 전역변수 때문에 쓸 거 없어서 타입 표시 한 거 같은데, 이런 센스는 칭찬한다. 하지만 타입 표시 할 때는 camelCase 를 쓴다. fInterval. 하지만 지금은 전역변수명이 달라졌기 때문에 그냥 interval 로 가자.
   // 서보모터의 속도에 따라 큰 상관이 없을수도 있긴한데 이동의 정확성 확보를 위해서는.

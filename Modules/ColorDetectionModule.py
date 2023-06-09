@@ -2,10 +2,10 @@ import time
 import cv2
 import numpy as np
 
-lower = np.array([100, 150, 0])
-upper = np.array([140, 255, 255])
+lower = np.array([30, 150, 0])
+upper = np.array([90, 255, 255])
 
-# BLUE 100-140 RED 0-10
+# BLUE 100-140 RED 0-10 GREEN 40-70
 
 cap = cv2.VideoCapture(0)
 time.sleep(2)

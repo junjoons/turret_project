@@ -16,7 +16,7 @@ int perAngle = 0;
 
 int calSpeed(int p_error, int error)
 {
-  speed = (int)((error - p_error) * velMultiplier);
+  speed = (int)((error - p_error) * velMultiplier); // 작년에는 error에도 pid 적용하여 계산함
   return speed;
 }
 
